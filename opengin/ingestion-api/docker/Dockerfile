@@ -13,6 +13,10 @@ RUN apk update && apk add --no-cache \
     && rm -rf /var/cache/apk/*
 
 WORKDIR /app
+
+# Copy the entire repository (build context is repo root: '.')
+# The build context is set in docker-compose.yml as '.' (repo root)
+# This allows access to all services in the monorepo if needed
 COPY . .
 
 # Print Ballerina version with clear formatting
@@ -31,6 +35,7 @@ ENV BAL_CONFIG_VAR_INGESTIONSERVICEHOST=${INGESTION_SERVICE_HOST:-0.0.0.0}
 ENV BAL_CONFIG_VAR_INGESTIONSERVICEPORT=${INGESTION_SERVICE_PORT:-8080}
 
 # Build the Ballerina service
+# Note: We navigate to opengin/ingestion-api because the build context is the repo root
 RUN cd opengin/ingestion-api && \
     bal build
 

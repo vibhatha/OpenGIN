@@ -43,14 +43,18 @@ FROM --platform=linux/amd64 golang:1.23 AS builder
 # Set working directory
 WORKDIR /app
 
-# Copy the source code
+# Copy the entire repository (build context is repo root: '.')
+# The build context is set in docker-compose.yml as '.' (repo root)
+# This allows access to all services in the monorepo if needed
 COPY . .
 
-# Download dependencies
+# Download Go dependencies
+# Note: We navigate to opengin/core-api because the build context is the repo root
 RUN cd opengin/core-api && \
     go mod download
 
 # Build the application
+# Note: We navigate to opengin/core-api because the build context is the repo root
 RUN cd opengin/core-api && \
     go build -o core-service cmd/server/service.go cmd/server/utils.go
 
