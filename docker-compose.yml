@@ -182,7 +182,6 @@ services:
       start_period: 120s
 
   e2e:
-    platform: linux/amd64
     image: python:3.9-slim
     container_name: e2e
     volumes:
