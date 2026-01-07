@@ -4,7 +4,7 @@
 
 Create the component in OpenChoreo Console. 
 
-Make sure to create the workload.yaml file in the `/opengin/core-api` level. 
+Make sure to create the `workload.yaml` file in the `/opengin/core-api` level. 
 This is equivalent to the `component.yaml` in Choreo. 
 
 ### Workflow Parameters
@@ -18,4 +18,3 @@ Path to the Dockerfile relative to the repository root = `/opengin/core-api/dock
 Path to the application directory within the repository
 
 `/opengin/core-api`
-
