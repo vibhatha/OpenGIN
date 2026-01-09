@@ -24,9 +24,9 @@ RUN groupadd -g 10014 choreo && \
 
 # Environment defaults (can be overridden at runtime)
 ENV NEO4J_AUTH=neo4j/neo4j123 \
-    NEO4J_server_memory_pagecache_size=1G \
-    NEO4J_server_memory_heap_initial__size=1G \
-    NEO4J_server_memory_heap_max__size=1G \
+    NEO4J_server_memory_pagecache_size=512M \
+    NEO4J_server_memory_heap_initial__size=512M \
+    NEO4J_server_memory_heap_max__size=512M \
     NEO4J_server_security_procedures_unrestricted=gds.*,apoc.* \
     NEO4J_server_directories_data=/neo4j_data \
     NEO4J_server_directories_logs=/neo4j_logs \
@@ -93,7 +93,7 @@ restore_from_github() {\n\
     \n\
     # Find the Neo4j backup file\n\
     local archive_dir="$temp_dir/data-backups-$version"\n\
-    local neo4j_backup="$archive_dir/opengin/version/$version/$environment/neo4j/neo4j.dump"\n\
+    local neo4j_backup="$archive_dir/opengin/$environment/neo4j/neo4j.dump"\n\
     \n\
     if [ ! -f "$neo4j_backup" ]; then\n\
         log "ERROR" "Neo4j backup file not found: $neo4j_backup"\n\

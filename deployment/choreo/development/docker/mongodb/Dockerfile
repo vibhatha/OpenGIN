@@ -101,7 +101,7 @@ restore_from_github() {\n\
     \n\
     # Find the MongoDB backup file\n\
     local archive_dir="$temp_dir/data-backups-$version"\n\
-    local mongodb_backup="$archive_dir/opengin/version/$version/$environment/mongodb/opengin.tar.gz"\n\
+    local mongodb_backup="$archive_dir/opengin/$environment/mongodb/opengin.tar.gz"\n\
     \n\
     if [ ! -f "$mongodb_backup" ]; then\n\
         log "ERROR" "MongoDB backup file not found: $mongodb_backup"\n\
@@ -189,6 +189,16 @@ for i in {1..30}; do\n\
     log "INFO" "Waiting for MongoDB... attempt $i/30"\n\
     sleep 2\n\
 done\n\
+\n\
+# Create admin user if it doesn'\''t exist (similar to official mongo image behavior)\n\
+if [ -n "${MONGO_INITDB_ROOT_USERNAME}" ] && [ -n "${MONGO_INITDB_ROOT_PASSWORD}" ]; then\n\
+    log "INFO" "Checking for admin user..."\n\
+    if ! mongo admin --quiet --eval "db.getUser('\''${MONGO_INITDB_ROOT_USERNAME}'\'')" 2>/dev/null | grep -q "user"; then\n\
+        log "INFO" "Creating admin user..."\n\
+        mongo admin --quiet > /dev/null 2>&1 <<< "db.createUser({user: '\''${MONGO_INITDB_ROOT_USERNAME}'\'', pwd: '\''${MONGO_INITDB_ROOT_PASSWORD}'\'', roles: [{role: '\''root'\'', db: '\''admin'\''}]})"\n\
+        log "SUCCESS" "Admin user created"\n\
+    fi\n\
+fi\n\
 \n\
 # Restore from GitHub if enabled and database doesn'\''t exist\n\
 if [ "${RESTORE_FROM_GITHUB:-false}" = "true" ]; then\n\

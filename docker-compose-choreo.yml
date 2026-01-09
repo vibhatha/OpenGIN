@@ -4,7 +4,6 @@ name: ldf-choreo
 
 services:
   mongodb-choreo:
-    platform: linux/amd64
     build:
       context: ./deployment/choreo/development/docker/mongodb
       dockerfile: Dockerfile
@@ -32,7 +31,6 @@ services:
       start_period: 30s
 
   neo4j-choreo:
-    platform: linux/amd64
     build:
       context: ./deployment/choreo/development/docker/neo4j
       dockerfile: Dockerfile
@@ -65,7 +63,6 @@ services:
       retries: 3
 
   postgres-choreo:
-    platform: linux/amd64
     build:
       context: ./deployment/choreo/development/docker/postgres
       dockerfile: Dockerfile
@@ -123,7 +120,6 @@ services:
     restart: unless-stopped
 
   cleanup-choreo:
-    platform: linux/amd64
     build:
       context: .
       dockerfile: deployment/development/docker/cleanup/Dockerfile.choreo
@@ -149,7 +145,6 @@ services:
       - cleanup
 
   core-choreo:
-    platform: linux/amd64
     build:
       context: ./opengin/core-api
       dockerfile: docker/Dockerfile.choreo
@@ -193,7 +188,6 @@ services:
       - choreo-network
 
   ingestion-choreo:
-    platform: linux/amd64
     build:
       context: ./opengin/ingestion-api
       dockerfile: docker/Dockerfile.choreo
@@ -217,7 +211,6 @@ services:
       - choreo-network
 
   read-choreo:
-    platform: linux/amd64
     build:
       context: ./opengin/read-api
       dockerfile: docker/Dockerfile.choreo
@@ -241,7 +234,6 @@ services:
       - choreo-network
 
   e2e-choreo:
-    platform: linux/amd64
     image: python:3.9-slim
     container_name: e2e-choreo
     volumes:
