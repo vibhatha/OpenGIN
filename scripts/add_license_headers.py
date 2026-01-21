@@ -64,7 +64,7 @@ def process_file(filepath, dry_run=False):
 
         with open(filepath, 'w', encoding='utf-8') as f:
             f.write(header + content)
-        print(f"[b] Added license to: {filepath}")
+        print(f"[ADDED] Added license to: {filepath}")
 
     except Exception as e:
         print(f"[ERROR] Failed to process {filepath}: {e}")
