@@ -47,3 +47,6 @@ docker/neo4j/logs/*
 #env
 opengin/core-api/.env.*
 
+# scripts
+scripts/__pycache__
+
