@@ -1,3 +1,6 @@
+# Copyright 2025 Lanka Data Foundation
+# SPDX-License-Identifier: Apache-2.0
+
 # Database Heartbeat Monitor Dockerfile
 FROM python:3.11-slim
 

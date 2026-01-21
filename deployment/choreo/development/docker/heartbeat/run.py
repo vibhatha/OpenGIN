@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Copyright 2025 Lanka Data Foundation
+# SPDX-License-Identifier: Apache-2.0
+
 """
 Database Heartbeat Monitor
 Monitors Neo4j, PostgreSQL, and MongoDB databases to verify backup restore success

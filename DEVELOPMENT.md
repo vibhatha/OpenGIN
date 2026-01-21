@@ -2,6 +2,30 @@
 
 Use `make help` to see all available targets. Recommended to save development time using this setup. 
 
+## License Headers
+
+All source files in this repository must include the Apache 2.0 license header. We have provided utility scripts to automate this process.
+
+### Adding Licenses to New Files
+
+When you add new source files (Go, Python, Shell, Ballerina, Proto, etc.), run the following command to ensure they have the correct license header:
+
+```bash
+# Apply to all known components
+python3 scripts/manage_licenses.py all
+
+# Apply to a specific component (e.g., core, ingestion)
+python3 scripts/manage_licenses.py core
+```
+
+### Checking for Missing Licenses
+
+You can use the `--dry-run` flag to see which files would be updated without modifying them:
+
+```bash
+python3 scripts/manage_licenses.py all --dry-run
+```
+
 ## Running Services
 
 Refer to the docker-based setup where all services can be started quite simply. No need to setup environmental variables separately for layers that you are not developing. 

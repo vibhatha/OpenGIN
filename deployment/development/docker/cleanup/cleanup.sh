@@ -1,4 +1,7 @@
 #!/bin/bash
+# Copyright 2025 Lanka Data Foundation
+# SPDX-License-Identifier: Apache-2.0
+
 set -e
 
 # Database cleanup script for CORE architecture

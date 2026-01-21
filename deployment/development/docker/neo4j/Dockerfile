@@ -1,3 +1,6 @@
+# Copyright 2025 Lanka Data Foundation
+# SPDX-License-Identifier: Apache-2.0
+
 # Simple Neo4j Server Dockerfile
 FROM neo4j:5.12.0
 

@@ -1,4 +1,7 @@
 #!/usr/bin/env python3
+# Copyright 2025 Lanka Data Foundation
+# SPDX-License-Identifier: Apache-2.0
+
 """
 Performance testing script for OpenGIN Read API
 Runs the curl command 20 times and calculates average response times

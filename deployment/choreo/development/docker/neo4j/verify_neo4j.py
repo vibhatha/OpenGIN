@@ -1,3 +1,6 @@
+# Copyright 2025 Lanka Data Foundation
+# SPDX-License-Identifier: Apache-2.0
+
 from neo4j import GraphDatabase
 import sys
 import os

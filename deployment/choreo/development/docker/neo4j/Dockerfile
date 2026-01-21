@@ -1,3 +1,6 @@
+# Copyright 2025 Lanka Data Foundation
+# SPDX-License-Identifier: Apache-2.0
+
 # Start from Ubuntu base image
 FROM ubuntu:22.04
 
