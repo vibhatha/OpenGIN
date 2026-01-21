@@ -21,6 +21,7 @@ EXTENSIONS = {
     '.bal': LICENSE_HEADER_SLASH,
     '.py': LICENSE_HEADER_HASH,
     '.sh': LICENSE_HEADER_HASH,
+    '.proto': LICENSE_HEADER_SLASH,
 }
 
 # Special filenames

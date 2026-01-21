@@ -1,3 +1,6 @@
+// Copyright 2025 Lanka Data Foundation
+// SPDX-License-Identifier: Apache-2.0
+
 import ballerina/io;
 import ballerina/test;
 import ballerina/protobuf.types.'any as pbAny;
